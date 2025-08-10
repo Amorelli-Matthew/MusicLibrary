@@ -10,7 +10,7 @@ cd /d "%~dp0"
 if not exist "out" mkdir "out"
 
 :: compile (keep your fixed JavaFX path)
-javac --module-path "%USERPROFILE%\Documents\javafx-sdk-24.0.1\lib" ^
+javac --module-path "%USERPROFILE%\Documents\javafx-sdk\lib" ^
       --add-modules javafx.controls,javafx.fxml ^
       -d "out" src\MusicLibraryApplication\*.java
 if errorlevel 1 (
