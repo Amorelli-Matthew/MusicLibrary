@@ -8,11 +8,11 @@ The Music Database Application is a Java-based program that allows users to mana
 [Download and install Open JavaFX](https://openjfx.io/)
 
 ### To compile
-In the current directory, run **Compile.bat**
+In the current project directory, run **Compile.bat**
 ### To Run
-In the current directory, run **Run.bat**
+In the current project directory, run **Run.bat**
 ### To Clean Build Files
-In the current directory, run **Clean.bat**
+In the current project directory, run **Clean.bat**
 
 ## License Notice
 Licesed as GPLV3 See `LICENSE` for details
