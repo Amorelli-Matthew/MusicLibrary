@@ -1,8 +1,7 @@
 # Music Library Application
 
 ### Description
-The Music Database Application is a Java-based program that allows users to manage  music tracks through an intuitive interface. It supports adding, organizing, and selecting songs, so users can easily access their chosen audio files. **It is not an mp3 player.** This project was originally developed to run within the NetBeans IDE environment.
-
+The Music Library Application is a Java-based program that allows users to manage  music tracks through an GUI interface. It supports adding, organizing, and selecting songs, so users can easily access their chosen songs.
 ### Prerequisites
 [Download and install Java JDK 17+](https://www.oracle.com/java/technologies/downloads/)
 [Download and install Open JavaFX](https://openjfx.io/)
