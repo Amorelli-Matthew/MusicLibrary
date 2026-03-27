@@ -1,18 +1,23 @@
-echo Running MusicLibraryApplication...
-
+@echo off
 setlocal enabledelayedexpansion
 
-REM Set the base path where JavaFX SDK folders are stored
-set JAVAFX_BASE=C:\javafx
+echo Running MusicLibraryApplication...
 
-REM Find the first folder in the base path that starts with "javafx-sdk"
-for /d %%i in ("%JAVAFX_BASE%\javafx-sdk*") do (
-    set JAVAFX_DIR=%%i
-    goto found
+:: 1. Set the correct absolute path to the FX lib folder
+set "FX_LIB=C:\Program Files (x86)\javafx\javafx-sdk\lib"
+
+:: 2. Enter the output directory where your compiled .class files are
+if exist "out" (
+    cd out
+) else (
+    echo [ERROR] 'out' folder not found. Please compile the project first.
+    pause
+    exit /b 1
 )
 
-cd out
-java --module-path "%USERPROFILE%\Documents\%JAVAFX_DIR%\lib" ^
+:: 3. Run the application
+:: Note: We removed %USERPROFILE% because FX_LIB is already an absolute path.
+java --module-path "%FX_LIB%" ^
      --add-modules javafx.controls,javafx.fxml ^
      -cp . MusicLibraryApplication.MusicLibraryApplication
 

@@ -1,5 +1,4 @@
 @echo off
-setlocal
 setlocal enabledelayedexpansion
 
 echo ============================================
@@ -7,37 +6,39 @@ echo Compiling MusicLibraryApplication...
 
 cd /d "%~dp0"
 
-:: ensure output dir
+:: Ensure output dir
 if not exist "out" mkdir "out"
 
+:: Set the specific path to your JavaFX lib folder
+:: Using quotes is vital because "Program Files (x86)" contains spaces
+set "FX_LIB=C:\Program Files (x86)\javafx\javafx-sdk\lib"
 
-REM Set the base path where JavaFX SDK folders are stored
-set JAVAFX_BASE=C:\javafx
-
-REM Find the first folder in the base path that starts with "javafx-sdk"
-for /d %%i in ("%JAVAFX_BASE%\javafx-sdk*") do (
-    set JAVAFX_DIR=%%i
-    goto found
+:: Verify the path exists before trying to compile
+if not exist "%FX_LIB%" (
+    echo [ERROR] JavaFX library not found at: "%FX_LIB%"
+    pause
+    exit /b 1
 )
-:found
 
-:: compile (keep your fixed JavaFX path)
-javac --module-path "%USERPROFILE%\Documents\%JAVAFX_DIR%\lib" ^
+:: Compile
+javac --module-path "%FX_LIB%" ^
       --add-modules javafx.controls,javafx.fxml ^
       -d "out" src\MusicLibraryApplication\*.java
+
 if errorlevel 1 (
     echo Compilation failed.
     pause
     exit /b 1
 )
 
-:: copy root to out after compilation succeeds
+:: Copy data files
 set FILES=Collection CollectionFile CollectionFile.dat
 for %%F in (%FILES%) do (
     if exist "%%~F" (
-        echo Copying %%~F -> out\
+        echo Copying %%~F -^> out\
         copy /Y "%%~F" "out\%%~nxF" >nul
     )
 )
 
-echo Done Compiling
+echo Done Compiling.
+pause
