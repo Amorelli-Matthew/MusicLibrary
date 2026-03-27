@@ -9,7 +9,7 @@ cd /d "%~dp0"
 :: Ensure output dir
 if not exist "out" mkdir "out"
 
-:: Set the specific path to your JavaFX lib folder
+:: Set the specific path to JavaFX lib folder
 :: Using quotes is vital because "Program Files (x86)" contains spaces
 set "FX_LIB=C:\Program Files (x86)\javafx\javafx-sdk\lib"
 
