@@ -26,9 +26,13 @@ import javafx.stage.Stage;
 /*
 Name: Matthew Amorelli
 
+<<<<<<< HEAD
 Date: November 6, 2022
 
 Assignment : Midterm
+=======
+Date: November 6, 2023
+>>>>>>> 654b911 (Reverted changes)
 
 Description: a program that stores a collection of songs
 */
@@ -127,7 +131,11 @@ public class MusicLibraryApplication extends Application {
         
       
         //set the title
+<<<<<<< HEAD
         stage.setTitle("Music Midterm");
+=======
+        stage.setTitle("Music Library");
+>>>>>>> 654b911 (Reverted changes)
         
         
         //Make the application not resizable
@@ -145,6 +153,7 @@ public class MusicLibraryApplication extends Application {
     public static VBox makeLabelBox() {
             
         //create title label
+<<<<<<< HEAD
         Label  Lbl_Title = new Label("Music Midterm App");
 
         //create name label
@@ -158,6 +167,13 @@ public class MusicLibraryApplication extends Application {
         
         //return vbox
         return  new VBox(Lbl_Title , Lbl_Name,  lbl_Assignment, lbl_Data);
+=======
+        Label  Lbl_Title = new Label("Welcome to the Music Library!");
+
+        
+        //return vbox
+        return  new VBox(Lbl_Title);
+>>>>>>> 654b911 (Reverted changes)
         
         
 }
